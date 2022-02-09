@@ -13,7 +13,7 @@ class User < ApplicationRecord
   APPROVED_DOMAINS = %w[gmail.com yahoo.com hotmail.com outlook.com aol.com]
 
   def password_complexity
-    if password.present? and not password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$")
+    if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
       errors.add :password, "must include at least one lowercase letter, one uppercase letter, and one digit"
     end
   end
