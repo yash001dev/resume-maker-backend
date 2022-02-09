@@ -268,7 +268,7 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
+    jwt.secret = Rails.application.credentials.jwt[:secret_key]
     jwt.dispatch_requests = [
       ['POST', %r{^/login$}]
     ]
